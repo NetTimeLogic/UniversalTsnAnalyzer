@@ -1,0 +1,786 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Uta_TsnPrioScreen</class>
+ <widget class="QWidget" name="Uta_TsnPrioScreen">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>630</width>
+    <height>670</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Prios</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <widget class="QGroupBox" name="TsnDelayGroupBox">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>591</width>
+     <height>601</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Prios</string>
+   </property>
+   <widget class="QLabel" name="TsnVlanPrio1Label">
+    <property name="geometry">
+     <rect>
+      <x>19</x>
+      <y>60</y>
+      <width>70</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>VLAN Prio 1</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="TsnVlanPrio2Label">
+    <property name="geometry">
+     <rect>
+      <x>19</x>
+      <y>90</y>
+      <width>70</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>VLAN Prio 2</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="TsnVlanPrio3Label">
+    <property name="geometry">
+     <rect>
+      <x>19</x>
+      <y>120</y>
+      <width>70</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>VLAN Prio 3</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="TsnVlanPrio4Label">
+    <property name="geometry">
+     <rect>
+      <x>19</x>
+      <y>150</y>
+      <width>70</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>VLAN Prio 4</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="TsnVlanPrio5Label">
+    <property name="geometry">
+     <rect>
+      <x>19</x>
+      <y>180</y>
+      <width>70</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>VLAN Prio 5</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="TsnVlanPrio6Label">
+    <property name="geometry">
+     <rect>
+      <x>19</x>
+      <y>210</y>
+      <width>70</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>VLAN Prio 6</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="TsnVlanPrio7Label">
+    <property name="geometry">
+     <rect>
+      <x>19</x>
+      <y>240</y>
+      <width>70</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>VLAN Prio 7</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="TsnVlanPrio0Label">
+    <property name="geometry">
+     <rect>
+      <x>19</x>
+      <y>30</y>
+      <width>70</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>VLAN Prio 0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="TsnNoVlanLabel">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>270</y>
+      <width>70</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>No VLAN</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="TsnVlanPrio0ComboBox">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>30</y>
+      <width>100</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>None</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 1</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 3</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 4</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 5</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 6</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 7</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QCheckBox" name="TsnAllFramesGraphCheckBox">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>320</y>
+      <width>200</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Show All Frames Graph</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="TsnPrio1FramesGraphCheckBox">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>380</y>
+      <width>200</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Show Prio 1 Frames Graph</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="TsnPrio2FramesGraphCheckBox">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>410</y>
+      <width>200</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Show Prio 2 Framea Graph</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="TsnPrio3FramesGraphCheckBox">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>440</y>
+      <width>200</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Show Prio 3 Frames Graph</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="TsnVlanPrio1ComboBox">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>60</y>
+      <width>100</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>None</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 1</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 3</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 4</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 5</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 6</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 7</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QComboBox" name="TsnVlanPrio2ComboBox">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>90</y>
+      <width>100</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>None</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 1</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 3</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 4</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 5</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 6</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 7</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QComboBox" name="TsnVlanPrio3ComboBox">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>120</y>
+      <width>100</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>None</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 1</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 3</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 4</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 5</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 6</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 7</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QComboBox" name="TsnVlanPrio4ComboBox">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>150</y>
+      <width>100</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>None</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 1</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 3</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 4</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 5</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 6</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 7</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QComboBox" name="TsnVlanPrio5ComboBox">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>180</y>
+      <width>100</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>None</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 1</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 3</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 4</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 5</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 6</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 7</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QComboBox" name="TsnVlanPrio6ComboBox">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>210</y>
+      <width>100</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>None</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 1</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 3</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 4</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 5</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 6</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 7</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QComboBox" name="TsnVlanPrio7ComboBox">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>240</y>
+      <width>100</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>None</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 1</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 3</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 4</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 5</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 6</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 7</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QComboBox" name="TsnNoVlanComboBox">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>270</y>
+      <width>100</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>None</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 1</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 3</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 4</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 5</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 6</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prio 7</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QCheckBox" name="TsnPrio0FramesGraphCheckBox">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>350</y>
+      <width>200</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Show Prio 0 Frames Graph</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="TsnPrio4FramesGraphCheckBox">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>470</y>
+      <width>200</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Show Prio 4 Frames Graph</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="TsnPrio5FramesGraphCheckBox">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>500</y>
+      <width>200</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Show Prio 5 Frames Graph</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="TsnPrio6FramesGraphCheckBox">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>530</y>
+      <width>200</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Show Prio 6 Frames Graph</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="TsnPrio7FramesGraphCheckBox">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>560</y>
+      <width>200</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Show Prio 7 Frames Graph</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="TsnDoneButton">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>630</y>
+     <width>75</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Done</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
