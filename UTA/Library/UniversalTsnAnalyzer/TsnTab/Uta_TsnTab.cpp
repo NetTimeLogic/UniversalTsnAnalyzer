@@ -49,26 +49,44 @@ void tsn_paket_handler(unsigned char *user, const struct pcap_pkthdr *phdr, cons
     unsigned int temp_data;
     unsigned int temp_nanosecond;
     unsigned int temp_vlan;
+    unsigned int temp_offset;
+    unsigned long long temp_fraction;
     timeval temp_ts;
 
-    if ((pdata[12] == 0x81) && (pdata[13] == 0x00))
+    if (tsn_tab->tsn_hw_ts == 2)
     {
-        temp_vlan = pdata[14];
-        temp_vlan = temp_vlan >> 5;
-        temp_vlan = temp_vlan & 0x07;
-    }
-    else
-    {
-        temp_vlan = 8; // not a possible VLAN Prio
-    }
+        temp_offset = 28;
+        temp_data = 0;
+        for (unsigned int i = 15; i >= 12; i--)
+        {
+            temp_data = temp_data << 8;
+            temp_data += pdata[i];
+        }
+        temp_ts.tv_sec = temp_data;
 
-    if (tsn_tab->tsn_hw_ts == 0)
-    {
-        temp_ts = phdr->ts;
-        temp_nanosecond = 0;
+        temp_data = 0;
+        for (unsigned int i = 19; i >= 16; i--)
+        {
+            temp_data = temp_data << 8;
+            temp_data += pdata[i];
+        }
+        temp_fraction = ((unsigned long long)temp_data);
+
+        temp_data = 0;
+        for (unsigned int i = 15; i >= 12; i--)
+        {
+            temp_data = temp_data << 8;
+            temp_data += pdata[i];
+        }
+        temp_fraction += (((unsigned long long)temp_data) * 0x100000000);
+
+        temp_ts.tv_sec = (temp_fraction / 1000000000);
+        temp_ts.tv_usec = ((temp_fraction % 1000000000) / 1000);
+        temp_nanosecond = ((temp_fraction % 1000000000) % 1000);
     }
-    else
+    else if (tsn_tab->tsn_hw_ts == 1)
     {
+        temp_offset = 0;
         temp_data = 0;
         for (unsigned int i = (phdr->caplen - 10); i < (phdr->caplen - 6); i++)
         {
@@ -86,6 +104,23 @@ void tsn_paket_handler(unsigned char *user, const struct pcap_pkthdr *phdr, cons
         temp_data &= 0x3FFFFFFF;
         temp_ts.tv_usec = temp_data / 1000;
         temp_nanosecond = temp_data % 1000;
+    }
+    else
+    {
+        temp_offset = 0;
+        temp_ts = phdr->ts;
+        temp_nanosecond = 0;
+    }
+
+    if ((pdata[temp_offset+12] == 0x81) && (pdata[temp_offset+13] == 0x00))
+    {
+        temp_vlan = pdata[temp_offset+14];
+        temp_vlan = temp_vlan >> 5;
+        temp_vlan = temp_vlan & 0x07;
+    }
+    else
+    {
+        temp_vlan = 8; // not a possible VLAN Prio
     }
 
     if (tsn_tab->tsn_raw_frame_count == 0)
@@ -398,7 +433,11 @@ void Uta_TsnTab::tsn_measure_values(void)
         //cout << "INFO: " << "activated ethernet interface:" << ui->TsnEthPortComboBox->currentText().toLatin1().constData() << endl;
     }
 
-    if (ui->TsnHwTsCheckBox->isChecked() == true)
+    if (ui->TsnPsTsCheckBox->isChecked() == true)
+    {
+        tsn_hw_ts = 2;
+    }
+    else if (ui->TsnVssTsCheckBox->isChecked() == true)
     {
         tsn_hw_ts = 1;
     }
@@ -872,7 +911,8 @@ void Uta_TsnTab::tsn_auto_refresh_button_clicked(void)
 
         ui->TsnMeasureButton->setEnabled(false);
         ui->TsnEthPortComboBox->setEnabled(false);
-        ui->TsnHwTsCheckBox->setEnabled(false);
+        ui->TsnVssTsCheckBox->setEnabled(false);
+        ui->TsnPsTsCheckBox->setEnabled(false);
         ui->TsnPersistenceCheckBox->setEnabled(false);
         if (ui->TsnPersistenceCheckBox->isChecked() == true)
         {
@@ -902,7 +942,8 @@ void Uta_TsnTab::tsn_auto_refresh_button_clicked(void)
 
         ui->TsnMeasureButton->setEnabled(true);
         ui->TsnEthPortComboBox->setEnabled(true);
-        ui->TsnHwTsCheckBox->setEnabled(true);
+        ui->TsnVssTsCheckBox->setEnabled(true);
+        ui->TsnPsTsCheckBox->setEnabled(true);
         ui->TsnPersistenceCheckBox->setEnabled(true);
         ui->TsnAlignCheckBox->setEnabled(true);
 

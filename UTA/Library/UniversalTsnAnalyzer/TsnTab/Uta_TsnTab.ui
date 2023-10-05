@@ -115,17 +115,17 @@
     <string>Start Refresh</string>
    </property>
   </widget>
-  <widget class="QCheckBox" name="TsnHwTsCheckBox">
+  <widget class="QCheckBox" name="TsnVssTsCheckBox">
    <property name="geometry">
     <rect>
      <x>590</x>
-     <y>20</y>
+     <y>10</y>
      <width>130</width>
      <height>20</height>
     </rect>
    </property>
    <property name="text">
-    <string>Hardware Timestamps</string>
+    <string>VSS Timestamps</string>
    </property>
    <property name="checked">
     <bool>false</bool>
@@ -847,6 +847,22 @@
      <string>0</string>
     </property>
    </widget>
+  </widget>
+  <widget class="QCheckBox" name="TsnPsTsCheckBox">
+   <property name="geometry">
+    <rect>
+     <x>590</x>
+     <y>30</y>
+     <width>130</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>ProfShark Timestamps</string>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
   </widget>
  </widget>
  <resources/>

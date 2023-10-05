@@ -205,16 +205,28 @@ void Uta_TsnPrioScreen::tsn_load_config(void)
                 ui->TsnPrio7FramesGraphCheckBox->setChecked(true);
             }
         }
-        else if(true == temp_line.startsWith("HW TS "))
+        else if(true == temp_line.startsWith("VSS TS "))
         {
             temp_data = temp_line.mid(6,1).toUInt(nullptr, 10);
             if (temp_data == 0)
             {
-                tsn_tab->ui->TsnHwTsCheckBox->setChecked(false);
+                tsn_tab->ui->TsnVssTsCheckBox->setChecked(false);
             }
             else
             {
-                tsn_tab->ui->TsnHwTsCheckBox->setChecked(true);
+                tsn_tab->ui->TsnVssTsCheckBox->setChecked(true);
+            }
+        }
+        else if(true == temp_line.startsWith("PS TS "))
+        {
+            temp_data = temp_line.mid(6,1).toUInt(nullptr, 10);
+            if (temp_data == 0)
+            {
+                tsn_tab->ui->TsnPsTsCheckBox->setChecked(false);
+            }
+            else
+            {
+                tsn_tab->ui->TsnPsTsCheckBox->setChecked(true);
             }
         }
         else if(true == temp_line.startsWith("ALIGN "))
@@ -372,13 +384,21 @@ void Uta_TsnPrioScreen::tsn_save_config(void)
     {
         temp_string.append("PRIO7 0\n");
     }
-    if (true == tsn_tab->ui->TsnHwTsCheckBox->isChecked())
+    if (true == tsn_tab->ui->TsnVssTsCheckBox->isChecked())
     {
-        temp_string.append("HW TS 1\n");
+        temp_string.append("VSS TS 1\n");
     }
     else
     {
-        temp_string.append("HW TS 0\n");
+        temp_string.append("VSS TS 0\n");
+    }
+    if (true == tsn_tab->ui->TsnPsTsCheckBox->isChecked())
+    {
+        temp_string.append("PS TS 1\n");
+    }
+    else
+    {
+        temp_string.append("PS TS 0\n");
     }
     if (true == tsn_tab->ui->TsnAlignCheckBox->isChecked())
     {
